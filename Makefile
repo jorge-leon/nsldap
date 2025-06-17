@@ -44,3 +44,8 @@ MODLIBS  =  -L/usr/local/lib -lldap -llber
 
 include  $(NAVISERVER)/include/Makefile.module
 
+README.html: README.md
+	pandoc -o $@ -f gfm+definition_lists $<
+
+clean:
+	rm -f $(OBJS) README.html
